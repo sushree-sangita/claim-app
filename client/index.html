@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="MainController as MainCtrl">
+    <head>
+        
+        <!-- just commiting to ameeya-dev branch -->
+        
+        <!-- Changing for second time in Dev branch -->
+        <title>LB Claim App</title>
+
+        <!-- Lib css files -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+
+        <!-- custom css files -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Lib js files -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/ng-csv/build/ng-csv.js"></script>
+        
+        <!-- include generated LoopBack service js file -->
+        <script src="js/services/lb-services.js"></script>
+        <script src="js/services/auth-service.js"></script>
+
+        <!-- custom js files -->
+        
+        
+        <script src="modules/claims/controllers/claim-list-controller.js"></script>
+        <script src="modules/claims/controllers/claim-view-controller.js"></script>
+        <script src="modules/claims/controllers/claim-new-controller.js"></script>
+        <script src="modules/claims/controllers/claim-edit-controller.js"></script>
+        <script src="modules/claims/claim.js"></script>
+        
+        <script src="js/controllers/app-controller.js"></script>
+        
+        <script src="js/app.js"></script>
+
+    </head>
+    <body>
+
+        <!-- NAVBAR -->
+        <header>
+            <div class="navbar navbar-default" ng-if="currentUser.id">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand"><span><img src="assets/Prolifics_Transparent.png" style="width:130px;height:30px"></span></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/claims">Claims</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" ng-if="true">
+                        <li><a href="#/login" ng-if="!currentUser.id">Login</a></li>
+                        <li class="navbar-text" ng-if="currentUser.id">Hello <span class="text-primary">{{ currentUser.employeeName }}</span></li>
+                        <li><a href="#" ng-click="MainCtrl.doLogout()" ng-if="currentUser.id">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main ng-cloak>
+            <!-- ANGULAR VIEWS -->
+            <div class="container-fluid">
+                <div ng-view></div>
+            </div>
+        </main>
+        
+    </body>
+</html>

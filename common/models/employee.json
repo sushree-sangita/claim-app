@@ -1,0 +1,33 @@
+{
+  "name": "Employee",
+  "plural": "Employees",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "username": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "employeeId": {
+      "type": "string"
+    },
+    "practiceDivision": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

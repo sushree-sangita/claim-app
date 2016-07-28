@@ -1,0 +1,363 @@
+<section>
+    <form class="form-horizontal" role="form" ng-submit="ClaimCtrl.createClaim()">
+
+        <!-- main panel -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="text-center">
+                    Reimbursement Details
+                </div>
+            </div>
+
+            <div class="panel-body">
+
+                <!-- main panel row -->
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- first inner panel -->
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+
+                                <div class="row">
+
+                                    <div class="col-sm-4">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label input-xs">Emp Name</label>
+                                            <div class="col-sm-8">
+                                                <input disabled type="text" class="form-control input-xs" placeholder="Emp Name" ng-model="ClaimCtrl.claimFormData.employeeName">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label input-xs">Designation</label>
+                                            <div class="col-sm-8">
+                                                <input disabled type="text" class="form-control input-xs" placeholder="Designation" ng-model="ClaimCtrl.claimFormData.designation">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label input-xs">Level</label>
+                                            <div class="col-sm-8">
+                                                <input disabled type="text" class="form-control input-xs" placeholder="Level" ng-model="ClaimCtrl.claimFormData.level">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label input-xs">Emp ID</label>
+                                            <div class="col-sm-8">
+                                                <input disabled type="text" class="form-control input-xs" placeholder="Emp ID" ng-model="ClaimCtrl.claimFormData.employeeId">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div> <!-- first panel col end -->
+
+                                    <div class="col-sm-4">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label input-xs">Practice/Division</label>
+                                            <div class="col-sm-8">
+                                                <input disabled type="text" class="form-control input-xs" placeholder="Practice/Division" ng-model="ClaimCtrl.claimFormData.practiceDivision">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label input-xs">Purpose</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control input-xs" placeholder="Purpose" ng-model="ClaimCtrl.claimFormData.purpose">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label input-xs">Project Code</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control input-xs" placeholder="Project Code" ng-model="ClaimCtrl.claimFormData.projectCode">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div> <!-- 2nd panel col end -->
+
+                                    <!-- col for containing 2nd panel -->
+                                    <div class="col-sm-4">
+
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-6 control-label input-xs">Advance Amount</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control input-xs" placeholder="Advance Amount" ng-model="ClaimCtrl.claimFormData.advanceAmount">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-6 control-label input-xs">Advance Currency</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control input-xs" placeholder="Advance Currency" ng-model="ClaimCtrl.claimFormData.advanceCurrency">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-6 control-label input-xs">Adv Exchange Rate</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control input-xs" placeholder="Adv Exchange Rate" ng-model="ClaimCtrl.claimFormData.advanceExchangeRate">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-6 control-label input-xs">Total Reimbursement</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control input-xs" placeholder="Total Reimbursement" ng-model="ClaimCtrl.claimFormData.totalReimbursement">
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- first panel body end -->
+                                </div> <!-- first panel end -->
+                            </div> <!-- 2nd panel col end -->
+
+                        </div> <!-- inside row -->
+
+                    </div> <!-- first row, main col -->
+
+                    <!-- col for containing 1st panel -->
+
+
+
+                </div> <!-- main panel row end -->
+
+                <!-- claim lines row -->
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- claim line panel -->
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="text-center">
+                                    Claim Lines
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <!-- Using table instead of Grid for the time being -->
+                                <table class="table table-bordered table-hover table-condensed input-xs">
+                                    <thead>
+                                        <tr class="active">
+                                            <th class="text-center">Sl No</th>
+                                            <th class="col-sm-1 text-center">Incurred Date</th>
+                                            <th class="col-sm-1 text-center">Expense Type</th>
+                                            <th class="col-sm-2 text-center">Description</th>
+                                            <th class="text-center">Currency</th>
+                                            <th class="text-center">Amount</th>
+                                            <th class="text-center">Exchange Rate</th>
+                                            <th class="text-center">Local Currency</th>
+                                            <th class="text-center">Total</th>
+                                            <th class="text-center">Bill to Client</th>
+                                            <th class="text-center">Reciept Included</th>
+                                            <th class="col-sm-2 text-center" ng-if="ClaimCtrl.viewMode!=='view'">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- dynamic records fetched from db -->
+                                        <tr ng-repeat="record in ClaimCtrl.claimFormData.filteredClaimLinesData track by $index">
+                                            <td class="text-center">
+                                                {{ ( $index + 1) + (ClaimCtrl.currentPage - 1) * ClaimCtrl.itemsPerPage }}
+                                            </td>
+                                            <td class="text-center">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{ record.incurredDate | date:"dd MMM, yyyy" }}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <input class="form-control input-xs" type="text"  ng-model="record.incurredDate  | date:'dd MMM, yyyy'">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{ record.expenseType }}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <select class="form-control input-xs" ng-model="record.expenseType">
+                                                        <option value=""></option>
+                                                        <option ng-repeat="val in ClaimCtrl.expenseTypeData">{{ val }}</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"  width="10%">
+                                                <textarea class="form-control input-xs" ng-disabled="ClaimCtrl.viewMode=='view'" rows="2" placeholder="Description" ng-model="record.description"></textarea>
+                                            </td>
+                                            <td class="text-center">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{ record.currency }}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <select class="form-control input-xs" ng-model="record.currency">
+                                                        <option value=""></option>
+                                                        <option ng-repeat="item in ClaimCtrl.currencyData" value="{{item}}">{{item}}</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{ record.amount }}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <input class="form-control input-xs" type="text"  ng-model="record.amount">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{ record.exchangeRate }}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <input class="form-control input-xs" type="text"  ng-model="record.exchangeRate">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{ record.localCurrency }}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <select class="form-control input-xs" ng-model="record.localCurrency">
+                                                        <option value=""></option>
+                                                        <option ng-repeat="item in ClaimCtrl.currencyData" value="{{item}}">{{item}}</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{ record.amount * record.exchangeRate }}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <input class="form-control input-xs" type="text"  ng-model="record.amount * record.exchangeRate">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <input type="checkbox" ng-disabled="ClaimCtrl.viewMode=='view'" ng-model="record.billToClient">
+                                            </td>
+                                            <td class="text-center">
+                                                <div ng-if="ClaimCtrl.viewMode=='view'">
+                                                    {{record.receiptIncluded}}
+                                                </div>
+                                                <div class="form-group-sm" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                    <select class="form-control input-xs" ng-model="record.receiptIncluded">
+                                                        <option value=""></option>
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-center" ng-if="ClaimCtrl.viewMode!=='view'">
+                                                <button type="button" class="btn btn-circle btn-sm btn-info" ng-click="ClaimCtrl.createClaimLine()"><span class="glyphicon glyphicon-plus"></span></button>
+                                                <button type="button" class="btn btn-circle btn-sm btn-primary" ng-click="ClaimCtrl.createDuplicateLine(record)"><i class="fa fa-clone" aria-hidden="true"></i></button>
+                                                <button type="button" class="btn btn-circle btn-sm btn-warning"><span class="glyphicon glyphicon-paperclip"></span></button>
+                                                <button type="button" class="btn btn-circle btn-sm btn-danger" ng-click="ClaimCtrl.removeClaimLine($index)"><span class="glyphicon glyphicon-trash"></span></button>
+
+                                            </td>
+                                        </tr>
+
+                                        <tr ng-if="ClaimCtrl.viewMode!=='view'">
+                                            <td></td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <input class="form-control input-xs" type="date"  ng-model="ClaimCtrl.lineData.incurredDate">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <!-- Expense type drop-down values -->
+                                                <div class="form-group-sm">
+                                                    <select class="form-control input-xs" ng-model="ClaimCtrl.lineData.expenseType">
+                                                        <option value=""></option>
+                                                        <option ng-repeat="val in ClaimCtrl.expenseTypeData">{{ val }}</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <textarea class="form-control input-xs" rows="3"  ng-model="ClaimCtrl.lineData.description"></textarea>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <select class="form-control input-xs" ng-model="ClaimCtrl.lineData.currency">
+                                                        <option value=""></option>
+                                                        <option ng-repeat="item in ClaimCtrl.currencyData" value="{{item}}">{{item}}</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <input class="form-control input-xs text-center input-xs" type="text"  ng-model="ClaimCtrl.lineData.amount">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <input class="form-control input-xs text-center input-xs" type="text"  ng-model="ClaimCtrl.lineData.exchangeRate">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <select class="form-control input-xs" ng-model="ClaimCtrl.lineData.localCurrency">
+                                                        <option value=""></option>
+                                                        <option ng-repeat="item in ClaimCtrl.currencyData" value="{{item}}">{{item}}</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <input disabled class="form-control input-xs text-right input-xs" type="text"  ng-model="ClaimCtrl.lineData.total">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <input class="form-input text-center input-xs" type="checkbox"  ng-model="ClaimCtrl.lineData.billToClient">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group-sm">
+                                                    <select class="form-control input-xs" ng-model="ClaimCtrl.lineData.receiptIncluded">
+                                                        <option value=""></option>
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <button type="button" class="btn btn-circle  btn-xs btn-info" ng-click="ClaimCtrl.createClaimLine()"><span class="glyphicon glyphicon-plus"></span></button>
+                                                <button type="button" class="btn btn-circle btn-xs btn-primary" ng-click="ClaimCtrl.createDuplicateLine(record)"><i class="fa fa-clone" aria-hidden="true"></i></button>
+                                                <button type="button" class="btn btn-circle  btn-xs btn-warning"><span class="glyphicon glyphicon-paperclip"></span></button>
+                                                <button type="button" class="btn btn-circle  btn-xs btn-danger" ng-click="ClaimCtrl.removeClaimLine($index)"><span class="glyphicon glyphicon-trash"></span></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <uib-pagination total-items="ClaimCtrl.getTotalItemsCount()" 
+                                                    items-per-page = "ClaimCtrl.itemsPerPage" 
+                                                    ng-model="ClaimCtrl.currentPage" 
+                                                    ng-change="ClaimCtrl.pageChanged()"
+                                                    >
+                                    </uib-pagination>
+                                </div>
+                            </div> <!-- claim-lines panel body end -->
+                        </div> <!-- claim line panel end -->
+
+                    </div> <!-- col end -->
+
+                </div> <!-- claim lines row end -->
+
+            </div> <!-- main panel body end -->
+
+            <div class="panel-footer">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info" ng-click="ClaimCtrl.saveClaimData()" ng-if="ClaimCtrl.viewMode !== 'view'">Save</button>
+                    <button type="submit" class="btn btn-info" ng-click="ClaimCtrl.submitClaimData()" ng-if="ClaimCtrl.viewMode !== 'view'">Submit</button>
+                    <a href="#/claims/{{ ClaimCtrl.claimFormData.id }}/print" class="btn btn-success btn-md"><span class="glyphicon glyphicon-print"></span> Print</a>
+                    <a class="btn btn-default " href="#/claims">Cancel</a>
+
+
+                </div>
+            </div>
+
+
+        </div> <!-- main panel end -->
+
+    </form> <!-- main form end -->
+
+</section>

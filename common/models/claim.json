@@ -1,0 +1,64 @@
+{
+  "name": "Claim",
+  "plural": "Claims",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "practiceDivision": {
+      "type": "string"
+    },
+    "employeeName": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "employeeID": {
+      "type": "string"
+    },
+    "projectCode": {
+      "type": "string"
+    },
+    "advanceAmount": {
+      "type": "number"
+    },
+    "advanceCurrency": {
+      "type": "string"
+    },
+    "advanceExchangeRate": {
+      "type": "number"
+    },
+    "totalReimbursement": {
+      "type": "number"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "status": {
+      "type": "string",
+      "default": "Pending"
+    },
+    "claimLines": {
+      "type": [
+        "object"
+      ]
+    },
+    "isSubmitted": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

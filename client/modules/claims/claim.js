@@ -1,0 +1,1 @@
+angular.module('claimModule', ['claimListCtrlModule', 'claimViewCtrlModule', 'claimNewCtrlModule', 'claimEditCtrlModule']);

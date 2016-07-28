@@ -1,0 +1,73 @@
+<section>    
+    <div class="container-fluid">
+
+        <div class="well text-center"> 
+
+            <h1>Claim History</h1>
+<hr />
+            <a class="btn btn-primary btn-md" href="#/claims/create"><span class="glyphicon glyphicon-list-alt"></span> Submit a Claim</a>
+            <a class="btn btn-success btn-md"><span class="glyphicon glyphicon-print"></span> Print</a>
+            <button class="btn btn-info btn-md" ng-csv="ClaimCtrl.getCsvData()" csv-header="ClaimCtrl.getCsvHeaderData()" filename="claims_list.csv"><span class="glyphicon glyphicon-save"></span> Export to CSV</button>
+        </div>
+
+        <!-- fetching data info alert -->
+        <div class="alert alert-info" ng-if="ClaimCtrl.processing">
+            <strong>Info!</strong> Indicates a neutral informative change or action.
+        </div>
+
+        <!-- no claims notification -->
+        <div class="alert alert-danger" ng-if="!ClaimCtrl.claimsDataFound">
+            No claims present. Please create one by clicking on "Submit" button.
+        </div>
+
+
+
+        <div class="panel panel-primary"  ng-if="ClaimCtrl.claimsDataFound">
+            <div clas="panel-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12" style="padding-top: 20px;">
+                            <table class="table table-condensed">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>Sl No</th>
+                                        <th>Claim ID</th>
+                                        <th>Employee</th>
+                                        <th>Purpose</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="record in ClaimCtrl.filteredClaimsData">
+                                        <td>{{ ( $index + 1) + (ClaimCtrl.currentPage - 1) * ClaimCtrl.itemsPerPage }}</td>
+                                        <td>{{ record.claimAssignedID }}</td>
+                                        <td>{{ record.employeeName }}</td>
+                                        <td>{{ record.purpose }}</td>
+                                        <td>{{ record.date  | date:"dd MMM, yyyy" }}</td>
+                                        <td>{{ record.status }}</td>
+                                        <td>
+                                            <button class="btn btn-xs btn-primary" ng-click="ClaimCtrl.viewClaim(record.id)"><span class="glyphicon glyphicon-eye-open"></span> View</button>
+                                            <button class="btn btn-xs btn-warning" ng-click="ClaimCtrl.editClaim(record.id)" ng-disabled="record.status==='Approved' || record.status==='Complete'"><span class="glyphicon glyphicon-pencil"></span> Edit Details</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr />
+                            <div>
+                                <uib-pagination total-items="ClaimCtrl.getTotalItemsCount()" 
+                                                items-per-page = "ClaimCtrl.itemsPerPage" 
+                                                ng-model="ClaimCtrl.currentPage" 
+                                                ng-change="ClaimCtrl.pageChanged()"
+                                                >
+                                </uib-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

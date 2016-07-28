@@ -1,0 +1,126 @@
+<style>    
+    table {
+        border-collapse: collapse;
+        float:left;
+        width:33%;
+
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding-left: 5px;
+
+    }
+</style>	
+<div>
+
+    <h1 align="center"> Prolifics Claim Details</h1>
+    <img src="assets/download.png" style="width:150px;height:50px;margin-left:50px;">
+    <p align="right">
+        8th Floor, Block - 3, <br>
+        DLF Commercial Developer Ltd. SEZ,
+        <br>Gachibowli Village, Hyderabad,
+        <br> Telangana 500029
+        Phone:040 3999 1920</p>
+    <h3 align="center" ><b><u>    Reimbursement Details</u></b></h3>
+</div>
+
+<div class="container">
+    <fieldset >
+
+        <table style="float: left" cellpadding="2px" cellspacing="2px">			
+
+            <tr>
+                <td><strong>Emp Name</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.employeeName }}</td>
+            </tr>
+            <tr>
+                <td><strong>Designation</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.designation }}</td>
+            </tr>
+            <tr>
+                <td><strong>Level</strong></td> 
+                <td>{{ ClaimCtrl.claimFormData.level }}</td>
+            </tr>
+            <tr>
+                <td><strong>Emp ID</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.employeeID }}</td>
+            </tr>
+        </table>     
+
+        <table style="float: left" cellpadding="2px" cellspacing="2px">				
+
+            <tr>
+                <td><strong>Practice/Division</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.practiceDivision }}</td>
+            </tr>
+            <tr>
+                <td><strong>Purpose</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.purpose }}</td>
+            </tr>
+            <tr>
+                <td><strong>Project Code</strong></td> 
+                <td>{{ ClaimCtrl.claimFormData.projectCode }}</td>
+            </tr>
+        </table>     
+
+        <table style="float: left" cellpadding="2px" cellspacing="2px">				
+            <tr>	<td><strong>Advance Amount</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.advanceAmount }}</td>
+            </tr>
+            <tr>
+                <td><strong>Advance currency</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.advanceCurrency }}</td>
+            </tr>
+            <tr>
+                <td><strong>Adv Exchange Rate</strong></td> 
+                <td>{{ ClaimCtrl.claimFormData.advanceExchangeRate }}</td>
+            </tr>
+            <tr>
+                <td><strong>Total Reimbursement</strong></td>
+                <td>{{ ClaimCtrl.claimFormData.totalReimbursement }}</td>
+            </tr>
+        </table>     
+    </fieldset>
+</div> 
+
+
+
+<h3 align="center">Claim Lines</h3>
+<div >
+    <table  style="width:100%" >
+        <thead>
+
+
+            <tr>
+                <th>Sl No</th>
+                <th>Incurred Date</th>
+                <th>Expense Type</th>
+                <th>Description</th>
+                <th>Currency</th>
+                <th>Amount</th>
+                <th>Exchange Rate</th>
+                <th>Local Currency</th>
+                <th>Total</th>
+                <th>Bill to Client</th>
+                <th>Reciept Included</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="record in ClaimCtrl.claimFormData.claimLines">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ record.incurredDate | date }}</td>
+                <td>{{ record.expenseType }}</td>
+                <td>{{ record.description }}</td>
+                <td>{{ record.currency }}</td>
+                <td>{{ record.amount }}</td>
+                <td>{{ record.exchangeRate }}</td>
+                <td>{{ record.localCurrency }}</td>
+                <td>{{ record.amount * record.exchangeRate }}</td>
+                <td>{{ record.billToClient ? 'yes' : 'no' }}</td>
+                <td>{{ record.receiptIncluded }}</td>
+            </tr>
+        </tbody>
+
+    </table>               
+</div> 
